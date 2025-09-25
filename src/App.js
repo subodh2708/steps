@@ -7,8 +7,17 @@ const messages = [
 ];
 
 export default function App() {
+  return (
+    <>
+      <Step />
+      <Step />
+    </>
+  );
+}
+
+function Step() {
   const [step, setStep] = useState(1);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   function handlePrevious() {
     if (step > 1) setStep((s) => s - 1);
@@ -18,7 +27,7 @@ export default function App() {
     if (step < 3) setStep((s) => s + 1);
   }
   return (
-    <>
+    <div>
       <button className="close" onClick={() => setIsOpen((is) => !is)}>
         &times;
       </button>
@@ -48,6 +57,6 @@ export default function App() {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }
